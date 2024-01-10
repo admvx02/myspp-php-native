@@ -1,0 +1,13 @@
+<?php
+include 'koneksi.php';
+$id = $_GET["id"];
+
+$query = "DELETE FROM spp WHERE id_spp='$id' ";
+$hasil_query = mysqli_query($koneksi, $query);
+
+if (!$hasil_query) {
+  die("Gagal menghapus data: " . mysqli_errno($koneksi) .
+    " - " . mysqli_error($koneksi));
+} else {
+  echo "<script>alert('Data berhasil dihapus.');window.location='spp.php';</script>";
+}
